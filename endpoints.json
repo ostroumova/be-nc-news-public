@@ -1,0 +1,92 @@
+{
+  "GET /api": {
+    "description": "serves up a json representation of all the available endpoints of the api"
+  },
+  "GET /api/topics": {
+    "description": "serves an array of all topics",
+    "queries": [],
+    "exampleResponse": {
+      "topics": [{ "slug": "football", "description": "Footie!" }]
+    }
+  },
+  "GET /api/articles": {
+    "description": "serves an array of all topics",
+    "queries": ["author", "topic", "sort_by", "order"],
+    "exampleResponse": {
+      "articles": [
+        {
+          "title": "Seafood substitutions are increasing",
+          "topic": "cooking",
+          "author": "weegembump",
+          "body": "Text from the article..",
+          "created_at": 1527695953341
+        }
+      ]
+    }
+  },
+  "GET /api/articles/:article_id": {
+    "description": "responds with a single matching article",
+    "queries": ["article_id"],
+    "exampleResponse": {
+      "title": "Seafood substitutions are increasing",
+      "topic": "cooking",
+      "author": "weegembump",
+      "body": "Text from the article..",
+      "created_at": 1527695953341
+    }
+  },
+  "PATCH /api/articles/:article_id": {
+    "description": "responds with the updated article",
+    "queries": ["article_id"],
+    "exampleResponse": {
+      "article_id": 3,
+      "title": "Eight pug gifs that remind me of mitch",
+      "topic": "mitch",
+      "author": "icellusedkars",
+      "body": "some gifs",
+      "created_at": "2020-11-03T09:12:00.000Z",
+      "votes": 4
+    }
+  },
+  "GET /api/users": {
+    "description": "responds with an array of users objects with `username`, `name`, `avatar_url` properties",
+    "queries": "",
+    "exampleResponse": [
+      {
+        "username": "butter_bridge",
+        "name": "jonny",
+        "avatar_url": "https://www.healthytherapies.com/wp-content/uploads/2016/06/Lime3.jpg"
+      }
+    ]
+  },
+  "GET /api/articles/:article_id/comments": {
+    "description": "responds with an array of comments for the given article_id with `comment_id`, `votes`, `created_at",
+    "queries": ["article_id"],
+    "exampleResponse": [
+      {
+        "comment_id": 2,
+        "votes": 14,
+        "created_at": "2020-10-31T03:03:00.000Z",
+        "author": "butter_bridge",
+        "body": "The beautiful thing about treasure is that it exists. Got to find out what kind of sheets these are; not cotton, not rayon, silky."
+      }
+    ]
+  },
+  "POST /api/articles/:article_id/comments": {
+    "description":"responds with comment newly added to the database",
+    "queries":["article_id"],
+    "exampleResponse":{
+      "comment_id": 19,
+      "body": "We are helping you succeed;)",
+      "article_id": 2,
+      "author": "icellusedkars",
+      "votes": 0,
+      "created_at": "2022-08-18T18:59:56.917Z"
+    }
+  },
+  "DELETE /api/comments/:comment_id": {
+    "description":"status:204 and no content",
+    "queries":["article_id"],
+    "exampleResponse":"no content"
+  }
+}
