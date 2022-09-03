@@ -24,7 +24,7 @@ PGDATABASE=nc_news
 Link to the hosted version on Heroku - https://dashboard.heroku.com/apps/ostroumova-news
 
 Minimum versions of needed to run the project:
-`Node.js` - version 6 and up
+`Node.js` - version v18.4.0 and up
 `Postgres` - version PostgreSQL 12 and up
 
 Scripts:
